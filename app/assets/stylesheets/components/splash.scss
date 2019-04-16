@@ -1,0 +1,37 @@
+.panels h1 {
+  font-size: 50px;
+}
+
+.panel1 {
+  padding-top: 70px;
+  margin-left: 115px;
+}
+
+.panel1-text {
+  margin-top: 145px;
+}
+
+.panel1 header {
+  margin-bottom: 25px;
+}
+
+.panel1 div {
+  padding-bottom: 25px;
+}
+
+.panel1 p {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: lighter;
+}
+
+.panel2-img {
+  background-image: image_url('splat_img.png');
+  width: 50%;
+  position:fixed;
+  top: 100px;
+  bottom:0;
+  right: 75px;
+  background-position: 50%;
+  background-size: cover;
+}

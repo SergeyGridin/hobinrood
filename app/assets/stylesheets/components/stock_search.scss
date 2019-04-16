@@ -1,0 +1,44 @@
+.stock-search {
+
+  .search-res {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .search-bar:focus-within + .search-res, .search-res:active {
+    visibility: visible;
+    background: white;
+    margin-right: -5px;
+    z-index: 999;
+
+    h4 {
+      padding: 15px 20px;
+      color: #ddd;
+    }
+    .search-res-item {
+      padding: 15px 20px;
+      p {
+        display: inline-block;
+        color: black;
+        font-size: 12px;
+      }
+      .search-ticker {
+        width: 70px;
+      }
+      .search-name {
+        width: 325px;
+      }
+    }
+    .search-res-item:hover {
+      background: #fafafa;
+    }
+  }
+
+  input {
+    font-size: 14px;
+  }
+}
+
+.search-res.hide {
+  visibility: hidden;
+}

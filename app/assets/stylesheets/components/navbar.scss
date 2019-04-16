@@ -1,0 +1,119 @@
+.nav-bar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8% 0px 8%;
+}
+
+.nav-bar.nav-links {
+  display: flex;
+}
+
+.svg-text {
+  font-family: "DIN Pro", "DIN Web", sans-serif;
+  color: black;
+  font-size: 20px;
+}
+
+.login, .demo-link, .nav-bar-home, .logout {
+  display: inline-block;
+  width: 80px;
+  margin-right: 20px;
+  margin-left: 15px;
+  color: black;
+  font-size: 16px;
+  font-family: "DIN Pro", "DIN Web", sans-serif;
+  font-weight: bold;
+  background-color: white;
+  text-decoration-line: none;
+}
+
+.login:hover {
+  color:#21ce99;
+}
+
+.nav-bar-home:hover {
+  color:#21ce99;
+}
+
+.loggedin-nav-bar{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 3% 0px 3%;
+}
+
+.signup {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin-right: 20px;
+  margin-left: 15px;
+  color: white;
+  padding: 15px 24px;
+  background-color: #21ce99;
+  font-size: 17px;
+  font-family: "DIN Pro", "DIN Web", sans-serif;
+  font-weight: bold;
+  border-radius: 36px;
+  text-decoration-line: none;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.signup:hover {
+ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+
+}
+
+.svg-logo:hover {
+  fill: #21ce99;
+}
+
+
+// LOGGED IN 
+
+
+
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin-left: 70px;
+
+  input {
+    border: 0.1px solid lightgrey;
+    height: 32px;
+    width: 400px;
+    padding: 2px 20px 0 20px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  ::placeholder{
+    color: lightgrey;
+  }
+  input:hover {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+  input:focus {
+    outline: none;
+  }
+}
+
+
+
+
+
+
