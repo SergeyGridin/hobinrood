@@ -1,0 +1,53 @@
+.chart-choice {
+  cursor: pointer;
+  padding-bottom: 15px;
+}
+
+.chart-choice.active {
+  color: #18d89e;
+  border-bottom: 2px solid #18d89e;
+}
+
+.chart-choice:hover {
+  color: #18d89e;
+}
+
+.chart {
+  box-sizing: border-box;
+  padding: 0;
+  padding-left: -20px;
+  margin: 0 5px;
+  // width: 676px;
+}
+
+.stock-chart {
+  margin-top: 32px;
+  z-index: 0;
+
+}
+
+.chart-range {
+  display: flex;
+  margin-top: 26px;
+  font-size: 14px;
+  font-weight: 700;
+  li {
+    margin: 0 22px 0 0;
+  }
+  padding-bottom: 15px;
+  margin-right: 35px;
+  border-bottom: 1px solid #eee;
+}
+
+.chart-range.stock {
+  margin-right: 55px;
+}
+
+body.negative .chart-choice:hover {
+  color: #f45531;
+}
+
+body.negative .chart-choice.active {
+  color: #f45531;
+  border-bottom: 2px solid #f45531;
+}

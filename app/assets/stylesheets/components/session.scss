@@ -74,3 +74,15 @@
   background-color: #1ae9aa;
   cursor: pointer;
 }
+
+.session-errors-li {
+  display: flex;
+}
+
+.error-li {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  margin-left: 5px;
+}

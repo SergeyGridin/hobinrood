@@ -1,0 +1,89 @@
+.stock-about {
+  margin-top: 45px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  margin-left: 5px;
+  padding-bottom: 10px;
+  margin-right: 55px;
+
+  h3 {
+    margin-top: 5px;
+    color: #18d89e;
+  }
+  h3:hover {
+    color: #10df89;
+    cursor: pointer;
+  }
+}
+.stock-about h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.stock-short-description {
+  margin: 27px 5px 42px 5px;
+  padding-right: 100px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.stock-facts {
+  background: white;
+  display: flex;
+  position: relative;
+  padding: 5px;
+  padding-bottom: 35px;
+  li {
+    width: 173px;
+    h3 {
+      font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+      font-weight: 500;
+    }
+    h4 {
+      font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+    }
+    .ceo {
+      color: #18d89e;
+    }
+  }
+  z-index: 2;
+ 
+
+}
+
+#index {
+  position: absolute;
+  z-index: 1;
+  transition-property: top;
+  transition-duration: 2s;
+}
+
+#about {
+  transition-property: padding-bottom;
+  transition-duration: 2s;
+}
+
+.stock-facts.hidden {
+  z-index: 1;
+  top: 240px;
+}
+.stock-facts.not-hidden {
+  z-index: 1;
+  top: 325px;
+}
+
+.extended {
+  padding-bottom: 80px;
+}
+
+
+//change height of stock about when toggle extraList

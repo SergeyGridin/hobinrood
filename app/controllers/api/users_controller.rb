@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      Deposit.create({user_id: @user.id, amount: 100000})
       login!(@user)
       render :show
     else

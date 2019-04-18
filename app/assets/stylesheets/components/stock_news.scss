@@ -1,0 +1,47 @@
+.stock-news {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column
+}
+
+.stock-news-item {
+  display: flex;
+  height: 136px;
+  justify-content: space-between;
+
+  padding: 30px 30px;
+  margin: 0 -30px;
+  img {
+    width: 198px;
+    height: 136px;
+    border-radius: 4px;
+  }
+  main {
+    width: 450px;
+    height: 100px;
+  }
+  h3 {
+    margin: 0;
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  h4 {
+    margin-bottom: 5px;
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  p {
+    margin: 0;
+    color: black;
+    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size: 14px;
+  }
+}
+
+.stock-news-item:hover {
+  background: #eee;
+}

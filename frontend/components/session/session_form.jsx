@@ -71,7 +71,9 @@ class SessionForm extends React.Component {
       <ul>
         {this.props.errors.map((error, i) => {
           return (
-            <li key={i}>{error}</li>
+            <div key={i} className="session-errors-li">
+              <svg  width="16" height="16" viewBox="0 0 16 16"><g fillRule="evenodd" transform="translate(0 -2)"><circle cx="8" cy="10" r="8"></circle><text fontFamily="DINPro-Black, DINPro" fontSize="11.5" fontWeight="700" letterSpacing=".048" fill="#fff"><tspan x="5.729" y="14">!</tspan></text></g></svg><li className="error-li" key={i}>{error}</li>
+            </div>
           )
         })}
       </ul>
@@ -102,7 +104,6 @@ class SessionForm extends React.Component {
         <div className="sessionform-text">
           <h2>Welcome to HobinRood</h2>
           <form onSubmit={this.handleSubmit}>
-            {this.renderErrors()}
             {emailField}
             <label>Username
               <br />
@@ -114,10 +115,13 @@ class SessionForm extends React.Component {
               <input required type="password" onChange={this.update('password')} value={this.state.password} />
             </label>
             <br />
+            {this.renderErrors()}
+            <br/>
             <div className="session-buttons">
               <input className="button" type="submit" value={buttonTxt} />
             </div>
           </form>
+
         </div>
         {/* <video width="320" height="240" > 
           <source src="app/assets/images/FirstExperienceStopwatchMovie.mp4" type="video/mp4" />

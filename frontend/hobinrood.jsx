@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/Root';
 import configureStore from './store/store';
+import { fetchStock } from './actions/stock_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING START
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.fetchStock = fetchStock;
 
   //TESTING END
   const root = document.getElementById('root');
