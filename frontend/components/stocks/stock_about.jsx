@@ -90,24 +90,26 @@ class StockAbout extends React.Component {
                   {this.renderLargeNum(stock.avgVolume)}
                 </li>
               </ul>
-              <ul id="index" className="stock-facts hidden">
-                <li>
-                  <h3>High Today</h3>
-                  <h4>${stock.high}</h4>
-                </li>
-                <li>
-                  <h3>Low Today</h3>
-                  <h4>${stock.low}</h4>
-                </li>
-                <li>
-                  <h3>52 Week High</h3>
-                  <h4>${stock.yearHigh}</h4>
-                </li>
-                <li>
-                  <h3>52 Week Low</h3>
-                  <h4>${stock.yearLow}</h4>
-                </li>
-              </ul>
+              <div className="last-stock-fact">
+                <ul id="index" className="stock-facts hidden">
+                  <li>
+                    <h3>High Today</h3>
+                    <h4>${stock.high}</h4>
+                  </li>
+                  <li>
+                    <h3>Low Today</h3>
+                    <h4>${stock.low}</h4>
+                  </li>
+                  <li>
+                    <h3>52 Week High</h3>
+                    <h4>${stock.yearHigh}</h4>
+                  </li>
+                  <li>
+                    <h3>52 Week Low</h3>
+                    <h4>${stock.yearLow}</h4>
+                  </li>
+                </ul>
+              </div>
             </div>
        
         }

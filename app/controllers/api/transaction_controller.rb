@@ -12,8 +12,9 @@ class Api::TransactionsController < ApplicationController
     @transaction.user_id = current_user.id
 
     shares_owned = current_user.shares_owned(@transaction.stock_id)
+    transaction_amount = @transaction.price * @transaction.num_shares
 
-    if transaction_amount > current_user.calculate_buying_power && @transaction.order_type == 'buy'
+    if transaction_amount > current_user.deposit && @transaction.order_type == 'buy'
       render json: ['Not Enough Buying Power'], status: 401
     elsif @transaction.num_shares.zero?
       render json: ['Shares must be greater than 0'], status: 422

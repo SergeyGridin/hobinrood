@@ -60,6 +60,10 @@
 
 }
 
+.last-stock-fact {
+  position: relative;
+}
+
 #index {
   position: absolute;
   z-index: 1;
@@ -74,16 +78,21 @@
 
 .stock-facts.hidden {
   z-index: 1;
-  top: 240px;
+  // top: 240px;
+  // top: 75%;
+  top: -78px;
 }
 .stock-facts.not-hidden {
   z-index: 1;
-  top: 325px;
+  // top: 325px;
+  top: 79%;
 }
 
 .extended {
   padding-bottom: 80px;
 }
+
+
 
 
 //change height of stock about when toggle extraList
