@@ -54,19 +54,7 @@ class User < ApplicationRecord
   def shares_owned(stock_id)
     stock = Stock.find(stock_id)
     self.stock_holdings[stock.ticker.to_sym]
-
-    # transactions.where(stock_id: stock_id).reduce(0) do |shares, transaction|
-    #   if transaction.order_type == 'buy'
-    #     shares + transaction.num_shares
-    #   else
-    #     shares - transaction.num_shares
-    #   end
-    # end
   end
  
 
 end
-
-# Transaction.create([
-#     {user_id: demo_user.id, stock_id: 1079, price: 68.45, num_shares: 50, order_type: 'sell'},
-#   ])
