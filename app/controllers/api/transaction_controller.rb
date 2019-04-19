@@ -22,6 +22,11 @@ class Api::TransactionsController < ApplicationController
       render json: ['Not Enough Shares'], status: 401
     else
       if @transaction.save
+        if @transaction.order_type == 'buy' 
+          @current_user.deposit -= transaction_amount
+        else
+          @current_user.deposit += transaction_amount
+        end
         render json: ['success'], status: 200
       else
         render json: @transaction.errors.full_messages, status: 422

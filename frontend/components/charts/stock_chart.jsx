@@ -30,7 +30,7 @@ class StockChart extends React.Component {
       }
     }
 
-    if (data) prevPrice = data[data.length-1].price;
+    if (data.length > 0) prevPrice = data[data.length-1].price;
     let max = Math.max(...prices);
     let min = Math.min(...prices);
     let currPrice = Math.round(prevPrice * 100) / 100;

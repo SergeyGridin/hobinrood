@@ -7,6 +7,8 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_one :deposit
+  has_many :transactions
+
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)
@@ -33,9 +35,38 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
+  def stock_holdings
+    stocks = Hash.new(0)
+    return [] if transactions.empty?
+    transactions_with_stocks = transactions.includes(:stock)
+
+    transactions_with_stocks.each do |transaction|
+      curr_stock = transaction.stock
+      if transaction.order_type == 'buy'
+        stocks[curr_stock.ticker] += transaction.num_shares
+      else
+        stocks[curr_stock.ticker] -= transaction.num_shares
+      end
+    end
+    return stocks
+  end
+
   def shares_owned(stock_id)
-    
+    stock = Stock.find(stock_id)
+    self.stock_holdings[stock.ticker.to_sym]
+
+    # transactions.where(stock_id: stock_id).reduce(0) do |shares, transaction|
+    #   if transaction.order_type == 'buy'
+    #     shares + transaction.num_shares
+    #   else
+    #     shares - transaction.num_shares
+    #   end
+    # end
   end
  
 
 end
+
+# Transaction.create([
+#     {user_id: demo_user.id, stock_id: 1079, price: 68.45, num_shares: 50, order_type: 'sell'},
+#   ])
