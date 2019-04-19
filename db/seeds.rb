@@ -17,6 +17,9 @@ Transaction.destroy_all
 demo_user = User.new({ email: 'putin@russia.ru', username: 'putin', password: '123456' })
 demo_user.save!
 
+demo_deposit = Deposit.new({ user_id: demo_user.id, amount: 100000 })
+demo_deposit.save!
+
 
 nyse_stocks = CSV.foreach("#{Rails.root}/db/companylist_nyse.csv").map { |row| {ticker: row[0], name: row[1]} }
 nasdaq_stocks = CSV.foreach("#{Rails.root}/db/companylist_nasdaq.csv").map { |row| {ticker: row[0], name: row[1]} }

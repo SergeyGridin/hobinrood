@@ -31,6 +31,9 @@ class StockShow extends React.Component {
               <StockAbout stock={stock} />
               <StockNews news={stock.news} />
             </div>
+            // <div>
+            //   {/* BUY/SELL goes HERE */}
+            // </div>
           : 
           <div>wait</div>
         }
