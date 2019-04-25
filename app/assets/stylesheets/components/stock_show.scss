@@ -1,8 +1,22 @@
-.stock-dashboard {
+.show-page {
   display: flex;
-  // padding: 100px 100px;
+  flex-direction: column;
+}
+
+.dashboard {
+  display: flex;
   padding-top: 100px;
   padding-left: 13.5%;
   flex-direction: column;
   width: 890px;
 }
+
+.side-container {
+  top: 15%;
+  right: 10%;
+  position: fixed;
+  max-height: 70%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+

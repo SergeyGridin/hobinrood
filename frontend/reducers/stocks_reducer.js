@@ -38,6 +38,7 @@ const stocksReducer = (state = {}, action) => {
       nextState[action.ticker].low = action.stockInfo.quote.low;
       nextState[action.ticker].yearHigh = action.stockInfo.quote.week52High;
       nextState[action.ticker].yearLow = action.stockInfo.quote.week52Low;
+      nextState[action.ticker].currentPrice = action.stockInfo.quote.latestPrice;
       return nextState;
     case RECEIVE_STOCK_NEWS:
       nextState[action.ticker].news = action.news;

@@ -111,6 +111,7 @@ class StockRechart extends React.Component {
 
   render() {
     let { currPrice, openPrice, priceDiff, priceDiffPercentage, data, min, max, neg } = this.state.currData;
+    neg = priceDiffPercentage >= 0 ? '+' : '-';
     let color = (neg === '+') ? "#82ca9d" : "#f45531";
     if (neg === '-') {
       document.getElementsByTagName('body')[0].className = 'negative';

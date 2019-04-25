@@ -3,6 +3,8 @@ import NavBar from '../nav_bar/nav_bar';
 import StockChart from '../charts/stock_chart';
 import StockAbout from './stock_about';
 import StockNews from './stock_news';
+import StockTransaction from './stock_transaction';
+
 
 
 class StockShow extends React.Component {
@@ -19,23 +21,25 @@ class StockShow extends React.Component {
   }
   
   render() {
-    const { currentUser, logout, stock } = this.props;
+    const { currentUser, logout, stock, createTransaction, fetchUserInfo, errors, receiveErrors } = this.props;
     return (
       
       <div>
         <NavBar currentUser={currentUser} logout={logout} />
         {
           stock && stock.intradayData && stock.dailyData ? 
-            <div className="stock-dashboard">
-              <StockChart stock={stock} />
-              <StockAbout stock={stock} />
-              <StockNews news={stock.news} />
+            <div className="show-page">
+              <div className="dashboard">
+                <StockChart stock={stock} />
+                <StockAbout stock={stock} />
+                <StockNews news={stock.news} />
+              </div>
+              <div className="side-container">
+                <StockTransaction currentUser={currentUser} stock={stock} createTransaction={createTransaction} fetchUserInfo={fetchUserInfo} errors={errors} receiveErrors={receiveErrors}/>
+              </div>
             </div>
-            // <div>
-            //   {/* BUY/SELL goes HERE */}
-            // </div>
-          : 
-          <div>wait</div>
+            : 
+            <div>wait</div>
         }
       </div>
     )

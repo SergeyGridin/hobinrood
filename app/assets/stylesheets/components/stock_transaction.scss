@@ -1,0 +1,149 @@
+.stock-transaction {
+  width: 300px;
+  border: 1px solid #eee;
+  box-shadow: 3px 0px 2px #fafafa, -3px 0px 2px #fafafa, 0px 3px 2px #fafafa, 0px -3px 2px #fafafa;
+  height: 400px;
+  h3 {
+    width: 280px;
+    font-size: 16px;
+    padding: 15px 18px;
+    a {
+      padding: 15px 5px;
+      cursor: pointer;
+    }
+    .active {
+      color: #21ce99;
+      border-bottom: 2px solid #21ce99;
+    }
+    a:hover {
+      color: #21ce99;
+    }
+    border-bottom: 1px solid #eee;
+  }
+  h4 {
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .transaction-shares {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px 5px 25px;
+    input {
+      width: 58px;
+      height: 12px;
+      padding: 10px;
+      text-align: right;
+      background: #fafafa;;
+      border: 1px solid #fafafa;;
+      outline: none;
+    }
+    input:hover, input:focus {
+      border: 1px solid grey;
+      background: white;
+      outline: none;
+      border-radius: 4px;
+    }
+  }
+
+
+
+  .transaction-price, .transaction-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 22px 0 25px;
+    padding-bottom: 20px;
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 0 15px 0 0;
+      margin: 0;
+    }
+  }
+
+  .transaction-price {
+    border-bottom: 1px solid #eee;
+  }
+
+  .transaction-errors {
+    display: flex;
+    font-size: 13px;
+    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight: 500;
+    height: 20px;
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 10px;
+    li {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      height: 18px;
+      width: 18px;
+      margin-right: 10px;
+      vertical-align: baseline;
+      text-align: none;
+    }
+  }
+
+  .transaction-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    input {
+      font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+      font-weight: 500;
+      border-radius: 4px;
+      background: #21ce99;
+      padding: 17px 80px;
+      cursor: pointer;
+    }
+    input:hover {
+      background: #1ae9aa;
+    }
+    input:focus {
+      outline: none;
+    }
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .buying-power {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+.watch-button {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  font-family: "DIN Pro", "DIN Web", sans-serif;
+  background: none;
+  border: none; 
+  font: inherit;
+  cursor: pointer;
+  padding-top: 30px;
+}
+
+.watch-button:hover {
+  color:#21ce99;
+}
+
+.watch-button:focus {
+  outline: none;
+}
+
+.outer-transaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+

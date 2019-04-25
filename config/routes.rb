@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :stocks, only: [:index]
     get '/stocks/:ticker', to: 'stocks#show'
-
+    resources :transactions, except: [:new, :edit]
+    resources :watchlist_items, only: [:create, :destroy, :show]
   end
 end

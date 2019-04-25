@@ -12,7 +12,6 @@
 
 .stock-news-item {
   display: flex;
-  height: 136px;
   justify-content: space-between;
 
   padding: 30px 30px;
@@ -24,7 +23,7 @@
   }
   main {
     width: 450px;
-    height: 100px;
+    // height: 100px;
   }
   h3 {
     margin: 0;

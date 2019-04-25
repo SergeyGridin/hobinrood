@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import StockShow from './stock_show';
-import {logout} from './../../actions/session_actions';
-import {
-  fetchStock,
-} from '../../actions/stock_actions';
+import {logout, fetchUserInfo} from './../../actions/session_actions';
+import { fetchStock } from '../../actions/stock_actions';
+import { createTransaction, receiveErrors } from '../../actions/transaction_actions';
+
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,13 +11,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     stock: state.entities.stocks[ownProps.match.params.ticker],
     currentUser: state.entities.users[state.session.id],
+    errors: state.errors.transaction
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchStock: ticker => dispatch(fetchStock(ticker)),
-  fetchIntradayData: ticker => dispatch(fetchIntradayData(ticker)),
-  fetchDailyData: ticker => dispatch(fetchDailyData(ticker)),
+  createTransaction: transaction => dispatch(createTransaction(transaction)),
+  fetchUserInfo: id => dispatch(fetchUserInfo(id)),
+  receiveErrors: errors => dispatch(receiveErrors(errors)),
   logout: () => dispatch(logout())
 });
 

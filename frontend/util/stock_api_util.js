@@ -35,5 +35,32 @@ export const fetchStockNews = ticker => (
   })
 );
 
+export const fetchIntradayPortfolioData = tickers => (
+  $.ajax({
+    url: `https://api.iextrading.com/1.0/stock/${tickers}/chart/1d`
+  })
+);
+
+
+// export const fetchPortfolioWatchlistPrices = tickers => (
+//   $.ajax({
+//     url: `https://api.iextrading.com/1.0/stock/market/batch?symbols=${tickers}&types=quote`
+//   })
+// );
+
+export const watchStock = (stock_id) => {
+  return $.ajax({
+    method: 'POST',
+    url: `api/watchlist_items`,
+    data: {stock_id}
+  });
+};
+
+export const unwatchStock = (id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/watchlist_items/${id}`
+  })
+);
 
 

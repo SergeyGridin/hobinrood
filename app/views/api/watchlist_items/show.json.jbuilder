@@ -1,0 +1,1 @@
+json.watchlist @watchlistitem.get_user_watchlist

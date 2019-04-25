@@ -37,4 +37,9 @@ export const logout = () => dispatch => (
     .then( () => dispatch(logoutCurrentUser()))
 );
 
+export const fetchUserInfo = (id) => dispatch => (
+  SessionApiUtil.fetchUserInfo(id)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+);
+
 
