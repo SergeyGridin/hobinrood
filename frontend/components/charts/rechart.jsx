@@ -1,5 +1,7 @@
 import React from 'react';
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import CustomTooltip from './custom_tooltip';
+
 
 const RANGES = {
   '1W': { length: 5, increment: 1 },
@@ -134,9 +136,12 @@ class StockRechart extends React.Component {
               hide={true}
               domain={[min, max]}
             />
-            {/* <Tooltip
-             
-            /> */}
+            <Tooltip
+              content={<CustomTooltip />}
+              offset={-40}
+              position={{ y: -20 }}
+              isAnimationActive={true}
+            />
             <Line type="linear" dataKey="price" stroke={color} dot={false} strokeWidth={2} />
           </LineChart>
           <ul className="chart-range stock">

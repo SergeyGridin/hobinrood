@@ -28,3 +28,16 @@ export const fetchUserInfo = ({id}) => {
   });
 };
 
+export const fetchCompleteUserInfo = ( id ) => {
+  return $.ajax({
+    url: `/api/users/${id}/complete`,
+    method: 'get'
+  });
+};
+
+export const fetchHistoricalUserInfo = ( id ) => {
+  return $.ajax({
+    url: `/api/users/${id}/historical`,
+    method: 'get'
+  });
+};

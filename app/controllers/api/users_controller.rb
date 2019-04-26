@@ -15,6 +15,14 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def historical
+    @user = User.find(params[:id])
+  end
+
+  def complete
+    @user = User.find(params[:id])
+  end
+
 
   private
 

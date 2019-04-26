@@ -22,11 +22,14 @@ class HomePage extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  // componentDidMount() {
-  //   if (this.props.currentUser) {
-  //     this.props.fetchUserInfo(this.props.currentUser.id);
-  //   }
-  // }
+  componentDidMount() {
+    if (this.props.currentUser) {
+      this.props.fetchCompleteUserInfo(this.props.currentUser.id);
+      if (!this.props.currentUser.portfolioData) {
+        this.props.fetchHistoricalUserInfo(this.props.currentUser.id);
+      }
+    }
+  }
 
   // componentDidUpdate(prevProps) {
   //   if (!prevProps.currentUser && this.props.currentUser) {
@@ -46,7 +49,7 @@ class HomePage extends React.Component {
     const { currentUser, logout } = this.props;
     let balance, dailyData, intradayData, openBalance, balances, max, min, balanceChange, balanceChangePercentage;
     let neg = "+";
-    if (currentUser) {
+    if (currentUser && currentUser.intradayData) {
       intradayData = currentUser.intradayData;
 
       for (let i = intradayData.length-1; i < intradayData.length; i--) {
@@ -78,7 +81,6 @@ class HomePage extends React.Component {
         if (balanceChange < 0) neg = "-";
       }
     }
-    debugger
     const display = currentUser ? (
       currentUser.portfolioData && currentUser.intradayData ? (
         <div className="show-page">
@@ -117,7 +119,7 @@ class HomePage extends React.Component {
           <BeatLoader
             className={override}
             sizeUnit={"px"}
-            size={150}
+            size={25}
             color={'#21ce99'}
             loading={true}
           />

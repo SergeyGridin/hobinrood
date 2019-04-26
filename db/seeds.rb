@@ -9,9 +9,10 @@ require 'csv'
 
 
 User.destroy_all
-Stock.destroy_all
+# Stock.destroy_all
 Deposit.destroy_all
 Transaction.destroy_all
+WatchlistItem.destroy_all
 
 # Create demo_user
 demo_user = User.new({ email: 'putin@russia.ru', username: 'putin', password: '123456' })

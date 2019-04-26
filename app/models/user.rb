@@ -110,27 +110,32 @@ class User < ApplicationRecord
         end
       end
     end
-
-    daily_data = get_portfolio_daily_data_two(stocks_arr)
-    # idx = -1
     daily_portfolio_value_arr= []
+   
+   
+    if stocks_arr.length > 0
+      daily_data = get_portfolio_daily_data_two(stocks_arr)
+    # idx = -1
+    
     # daily_portfolio_value_hash = {}
 
     #
-    idx = -1
-    while date_hash[daily_data[stocks_arr[0]]['chart'][idx]['date']]
-      daily_portfolio_value_hash = {}
-      day = daily_data[stocks_arr[0]]['chart'][idx]['date']
-      stocks_for_the_day = date_hash[day]['stocks'].keys
-      sum = date_hash[day]['cash']
-      stocks_for_the_day.each do |ticker|
-        sum += (daily_data[ticker]['chart'][idx]['close'] * date_hash[day]['stocks'][ticker])
+      idx = -1
+      while date_hash[daily_data[stocks_arr[0]]['chart'][idx]['date']]
+        daily_portfolio_value_hash = {}
+        day = daily_data[stocks_arr[0]]['chart'][idx]['date']
+        stocks_for_the_day = date_hash[day]['stocks'].keys
+        sum = date_hash[day]['cash']
+        stocks_for_the_day.each do |ticker|
+          sum += (daily_data[ticker]['chart'][idx]['close'] * date_hash[day]['stocks'][ticker])
+        end
+        daily_portfolio_value_hash['date'] = day
+        daily_portfolio_value_hash['balance'] = sum.round(2)
+        daily_portfolio_value_arr << daily_portfolio_value_hash
+        idx-=1
       end
-      daily_portfolio_value_hash['date'] = day
-      daily_portfolio_value_hash['balance'] = sum.round(2)
-      daily_portfolio_value_arr << daily_portfolio_value_hash
-      idx-=1
     end
+
     #
 
     # while date_hash[daily_data.values[0][idx]['date']]
@@ -189,29 +194,41 @@ class User < ApplicationRecord
     portfolio = self.stock_holdings
     stocks_arr = portfolio.keys
     cash = self.deposit.amount
-    data = self.get_portfolio_intraday_data
+    if portfolio.length > 0
+      data = self.get_portfolio_intraday_data
+    end
     hash_arr = []
     idx = 0
     times_idx = 0
-    while idx < data[stocks_arr[0]]['chart'].length
-      break if stocks_arr.any? { |stock| data[stock]['chart'][idx]['marketClose'].nil? }
-      hash = {}
-      sum = cash
-      stocks_arr.each do |stock|
-        # break if data[stock]['chart'][idx]['marketClose'].nil?
-        sum += portfolio[stock] * data[stock]['chart'][idx]['marketClose']
-        # hash[data[stock]['chart'][idx]['minute']] = sum.round(2)
-        # hash['time'] = data[stock]['chart'][idx]['minute']
-        # hash['balance'] = sum.round(2)
-        # hash_arr << hash
+    if portfolio.length > 0
+      
+      while idx < data[stocks_arr[0]]['chart'].length
+        break if stocks_arr.any? { |stock| data[stock]['chart'][idx]['marketClose'].nil? }
+        hash = {}
+        sum = cash
+        stocks_arr.each do |stock|
+          # break if data[stock]['chart'][idx]['marketClose'].nil?
+          sum += portfolio[stock] * data[stock]['chart'][idx]['marketClose']
+          # hash[data[stock]['chart'][idx]['minute']] = sum.round(2)
+          # hash['time'] = data[stock]['chart'][idx]['minute']
+          # hash['balance'] = sum.round(2)
+          # hash_arr << hash
+        end
+        hash['time'] = data[stocks_arr[0]]['chart'][idx]['label']
+        hash['balance'] = sum.round(2)
+        hash_arr << hash
+
+        idx+=5
+        times_idx+=1
       end
-      hash['time'] = data[stocks_arr[0]]['chart'][idx]['minute']
-      hash['balance'] = sum.round(2)
+    else
+      hash = {}
+      hash['time'] = '9:30'
+      hash['balance'] = cash
       hash_arr << hash
 
-      idx+=5
-      times_idx+=1
     end
+
     while times_idx < times.length
       hash = {}
       hash['time'] = times[times_idx]

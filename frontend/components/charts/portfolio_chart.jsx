@@ -1,7 +1,6 @@
 import React from 'react';
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
-// import StockRechart from './stock_rechart';
-// import CustomTooltip from './custom_tooltip';
+import CustomTooltip from './custom_tooltip';
 
 class PortfolioChart extends React.Component {
   constructor(props) {
@@ -47,12 +46,12 @@ class PortfolioChart extends React.Component {
               hide={true}
               domain={[min, max]}
               />
-            {/* <Tooltip
-              content={<CustomTooltip balance={balance} balanceFlux={balanceFlux} balanceFluxPercentage={balanceFluxPercentage} openBalance={openBalance} neg={neg}/>}
+            <Tooltip
+              content={<CustomTooltip  />}
               offset={-40}
-              position={{y: -20}}
-              isAnimationActive={false}
-            /> */}
+              position={{ y: -20 }}
+              isAnimationActive={true}
+            />
           <Line type="linear" dataKey="balance" stroke={color} dot={false} strokeWidth={2} />
           </LineChart>
           <ul className="chart-range">
