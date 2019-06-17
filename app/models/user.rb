@@ -52,7 +52,8 @@ class User < ApplicationRecord
   def get_portfolio_watchlist_prices
     tickers = self.stock_holdings.keys.join(",")
     finals = tickers + "," + self.get_watchlist.join(",")
-    url = "https://api.iextrading.com/1.0/stock/market/batch?symbols=#{finals}&types=quote"
+    # need to combine tickers and finals
+    url = "https://cloud.iexapis.com/v1/stock/market/batch?symbols=#{finals}&types=quote&token=pk_9aec779f906148508a27dc224023172d"
     response = RestClient.get(url)
     JSON.parse(response)
   end
@@ -159,7 +160,7 @@ class User < ApplicationRecord
   def get_portfolio_daily_data(stocks_arr)
     responses = {}
     stocks_arr.each do |ticker|
-      url = "https://api.iextrading.com/1.0/stock/#{ticker}/chart"
+      url = "https://cloud.iexapis.com/v1/stock/#{ticker}/chart"
       response = RestClient.get(url)
       responses[ticker] = JSON.parse(response)
     end
@@ -168,7 +169,7 @@ class User < ApplicationRecord
 
   def get_portfolio_daily_data_two(stocks_arr)
     tickers = stocks_arr.join(",")
-    url = "https://api.iextrading.com/1.0//stock/market/batch?symbols=#{tickers}&types=chart&range=5y"
+    url = "https://cloud.iexapis.com/v1//stock/market/batch?symbols=#{tickers}&types=chart&range=5y&token=pk_9aec779f906148508a27dc224023172d"
     response = RestClient.get(url)
     JSON.parse(response)
 
@@ -183,7 +184,7 @@ class User < ApplicationRecord
 
   def get_portfolio_intraday_data
     tickers = self.stock_holdings.keys.join(",")
-    url = "https://api.iextrading.com/1.0//stock/market/batch?symbols=#{tickers}&types=chart&range=1d"
+    url = "https://cloud.iexapis.com/v1/stock/market/batch?symbols=#{tickers}&types=chart&range=1d&token=pk_9aec779f906148508a27dc224023172d"
     response = RestClient.get(url)
     JSON.parse(response)
   end

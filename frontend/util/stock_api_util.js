@@ -13,19 +13,24 @@ export const fetchStocks = () => (
 export const fetchDailyData = ticker => (
   $.ajax({
     method: 'get',
-    url: `https://api.iextrading.com/1.0/stock/${ticker}/chart/5y`
+    // url: `https://api.iextrading.com/1.0/stock/${ticker}/chart/5y`
+    url: `https://cloud.iexapis.com/v1/stock/${ticker}/chart/5y?token=pk_9aec779f906148508a27dc224023172d`
   })
 );
 
 export const fetchIntradayData = ticker => (
   $.ajax({
-    url: `https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`
+    // url: `https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`
+    url: `https://cloud.iexapis.com/v1/stock/${ticker}/chart/1d?token=pk_9aec779f906148508a27dc224023172d`
+
   })
 );
 
 export const fetchInfo = ticker => (
   $.ajax({
-    url: `https://api.iextrading.com/1.0/stock/market/batch?symbols=${ticker}&types=quote,company,stats`
+    // url: `https://api.iextrading.com/1.0/stock/market/batch?symbols=${ticker}&types=quote,company,stats`
+    url: `https://cloud.iexapis.com/v1/stock/market/batch?symbols=${ticker}&types=quote,company,stats&token=pk_9aec779f906148508a27dc224023172d`
+
   })
 );
 
@@ -37,7 +42,9 @@ export const fetchStockNews = ticker => (
 
 export const fetchIntradayPortfolioData = tickers => (
   $.ajax({
-    url: `https://api.iextrading.com/1.0/stock/${tickers}/chart/1d`
+    // url: `https://api.iextrading.com/1.0/stock/${tickers}/chart/1d`
+    url: `https://cloud.iexapis.com/v1/stock/${tickers}/chart/1d?token=pk_9aec779f906148508a27dc224023172d`
+    
   })
 );
 
