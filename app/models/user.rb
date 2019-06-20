@@ -50,9 +50,10 @@ class User < ApplicationRecord
   end
 
   def get_portfolio_watchlist_prices
-    tickers = self.stock_holdings.keys.join(",")
-    finals = tickers + "," + self.get_watchlist.join(",")
+    # tickers = self.stock_holdings.keys.join(",")
+    # finals = tickers + "," + self.get_watchlist.join(",")
     # need to combine tickers and finals
+    finals = (self.stock_holdings.keys + self.get_watchlist).uniq.join(",")
     url = "https://cloud.iexapis.com/v1/stock/market/batch?symbols=#{finals}&types=quote&token=pk_9aec779f906148508a27dc224023172d"
     response = RestClient.get(url)
     JSON.parse(response)
@@ -169,7 +170,7 @@ class User < ApplicationRecord
 
   def get_portfolio_daily_data_two(stocks_arr)
     tickers = stocks_arr.join(",")
-    url = "https://cloud.iexapis.com/v1//stock/market/batch?symbols=#{tickers}&types=chart&range=5y&token=pk_9aec779f906148508a27dc224023172d"
+    url = "https://cloud.iexapis.com/v1/stock/market/batch?symbols=#{tickers}&types=chart&range=5y&token=pk_9aec779f906148508a27dc224023172d"
     response = RestClient.get(url)
     JSON.parse(response)
 

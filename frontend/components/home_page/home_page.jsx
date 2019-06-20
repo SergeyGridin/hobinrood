@@ -25,9 +25,9 @@ class HomePage extends React.Component {
   componentDidMount() {
     if (this.props.currentUser) {
       this.props.fetchCompleteUserInfo(this.props.currentUser.id);
-      if (!this.props.currentUser.portfolioData) {
-        this.props.fetchHistoricalUserInfo(this.props.currentUser.id);
-      }
+      // if (!this.props.currentUser.portfolioData) {
+      //   this.props.fetchHistoricalUserInfo(this.props.currentUser.id);
+      // }
     }
   }
 
@@ -81,8 +81,9 @@ class HomePage extends React.Component {
         if (balanceChange < 0) neg = "-";
       }
     }
+    // removed 'currentUser.portfolioData &&' from line 86 to save some api messages use
     const display = currentUser ? (
-      currentUser.portfolioData && currentUser.intradayData ? (
+       currentUser.intradayData ? (
         <div className="show-page">
           <div className="dashboard">
             <PortfolioChart 
