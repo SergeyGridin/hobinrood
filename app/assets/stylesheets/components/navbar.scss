@@ -7,7 +7,9 @@
   background: white;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 8% 0px 8%;
+  padding: 10px 4% 10px 4%;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 0px;
 }
 
 .nav-bar.nav-links {
@@ -15,32 +17,24 @@
 }
 
 .main-nav {
-  // display: inline-block;
-  // box-sizing: border-box;
   display: flex;
-  // border: 1px solid black
 }
 
 .svg-text {
   display: inline-block;
   box-sizing: border-box;
-  // border-bottom: 1px solid;
-  // border: 1px solid black;
-  // margin-bottom: px;
   font-family: "DIN Pro", "DIN Web", sans-serif;
   color: black;
   font-size: 19px;
   font-weight: 400;
   margin-left: 5px;
   padding-top: 2px;
-  // padding-bottom: 10px
-  // letter-spacing: 0.5px;
-  // vertical-align: middle;
-
 }
 
-
-.login, .demo-link, .nav-bar-home, .logout {
+.login,
+.demo-link,
+.nav-bar-home,
+.logout {
   display: inline-block;
   width: 80px;
   margin-right: 20px;
@@ -54,14 +48,14 @@
 }
 
 .login:hover {
-  color:#21ce99;
+  color: #21ce99;
 }
 
 .nav-bar-home:hover {
-  color:#21ce99;
+  color: #21ce99;
 }
 
-.loggedin-nav-bar{
+.loggedin-nav-bar {
   display: flex;
   position: fixed;
   top: 0;
@@ -94,20 +88,15 @@
 }
 
 .signup:hover {
- box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-
 }
 
 .svg-logo:hover {
   fill: #21ce99;
 }
 
-
-// LOGGED IN 
-
-
-
+// LOGGED IN
 
 .site-nav {
   display: flex;
@@ -122,19 +111,13 @@
     padding: 2px 20px 0 20px;
     transition: box-shadow 0.3s ease-in-out;
   }
-  ::placeholder{
+  ::placeholder {
     color: lightgrey;
   }
   input:hover {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   }
   input:focus {
     outline: none;
   }
 }
-
-
-
-
-
-

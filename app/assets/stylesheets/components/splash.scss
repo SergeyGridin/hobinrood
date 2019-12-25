@@ -1,37 +1,53 @@
-.panels h1 {
-  font-size: 50px;
-}
-
-.panel1 {
-  padding-top: 70px;
-  margin-left: 115px;
-}
-
-.panel1-text {
-  margin-top: 145px;
-}
-
-.panel1 header {
-  margin-bottom: 25px;
-}
-
-.panel1 div {
-  padding-bottom: 25px;
-}
-
-.panel1 p {
-  font-size: 18px;
-  margin: 5px 0;
-  font-weight: lighter;
-}
-
 .panel2-img {
-  background-image: image_url('splat_img.png');
-  width: 50%;
-  position:fixed;
-  top: 100px;
-  bottom:0;
-  right: 75px;
-  background-position: 50%;
-  background-size: cover;
+  background-image: image_url("hobinrood-2.png");
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+div.splash {
+  height: calc(100vh - 250px);
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+// .img-container {
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+//   height: 100%;
+//   min-width: 585px;
+// }
+
+.img-container {
+  display: block;
+  width: 100%;
+  height: 65%;
+  min-height: 300px;
+  order: 1;
+}
+
+.text-container {
+  margin-top: 75px;
+  display: flex;
+  order: 2;
+  font-size: 2em;
+}
+
+@media only screen and (min-width: 1025px) {
+  div.splash {
+    flex-direction: row;
+  }
+  .text-container {
+    flex: 0 0 44%;
+    font-size: 1em;
+    order: 1;
+  }
 }
