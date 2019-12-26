@@ -1,11 +1,13 @@
 .portfolio-watchlist-container {
-  width: 300px;
+  // width: 300px;
   border: 1px solid #eee;
-  box-shadow: 3px 0px 2px #fafafa, -3px 0px 2px #fafafa, 0px 3px 2px #fafafa, 0px -3px 2px #fafafa;
+  box-shadow: 3px 0px 2px #fafafa, -3px 0px 2px #fafafa, 0px 3px 2px #fafafa,
+    0px -3px 2px #fafafa;
   height: 100%;
 }
 
-.portfolio, .watchlist{
+.portfolio,
+.watchlist {
   h4 {
     padding: 15px 25px;
     border-bottom: 1px solid #eee;

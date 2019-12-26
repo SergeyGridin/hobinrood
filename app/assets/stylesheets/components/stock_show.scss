@@ -5,18 +5,45 @@
 
 .dashboard {
   display: flex;
-  padding-top: 100px;
-  padding-left: 13.5%;
+  margin-top: 75px;
+  margin-left: 0;
+  // padding-top: 100px;
+  // padding-left: 13.5%;
   flex-direction: column;
-  width: 890px;
+  width: 60%;
 }
 
 .side-container {
-  top: 15%;
-  right: 10%;
   position: fixed;
+  top: 75px;
+  right: 4%;
+  width: 24%;
   max-height: 70%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
+// .show-page {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .dashboard {
+//   display: flex;
+//   padding-top: 100px;
+//   padding-left: 13.5%;
+//   flex-direction: column;
+//   width: 890px;
+// }
+
+// .side-container {
+//   top: 15%;
+//   right: 10%;
+//   position: fixed;
+//   max-height: 70%;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
+
+@media only screen and (min-width: 1025px) {
+}

@@ -12,10 +12,6 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 0px;
 }
 
-.nav-bar.nav-links {
-  display: flex;
-}
-
 .main-nav {
   display: flex;
 }
@@ -37,8 +33,7 @@
 .logout {
   display: inline-block;
   width: 80px;
-  margin-right: 20px;
-  margin-left: 15px;
+  margin: auto;
   color: black;
   font-size: 16px;
   font-family: "DIN Pro", "DIN Web", sans-serif;
@@ -64,7 +59,7 @@
   background: white;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 3% 0px 3%;
+  padding: 10px 4% 10px 4%;
   z-index: 999;
 }
 
@@ -103,6 +98,12 @@
   justify-content: space-between;
   width: 1200px;
   margin-left: 70px;
+  .nav-links {
+    display: flex;
+    a {
+      margin: auto;
+    }
+  }
 
   input {
     border: 0.1px solid lightgrey;
