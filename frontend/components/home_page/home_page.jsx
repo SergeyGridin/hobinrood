@@ -109,20 +109,20 @@ class HomePage extends React.Component {
               balanceChange={balanceChange}
               balanceChangePercentage={balanceChangePercentage}
             />
-            <NewsIndexContainer />
-          </div>
-          <aside className="side-container">
-            <div className="portfolio-watchlist-container">
-              <div className="portfolio">
-                <h4>Stocks</h4>
-                <StockIndex currentUser={currentUser} />
-              </div>
-              <div className="watchlist">
-                <h4>Watchlist</h4>
-                <WatchlistIndex currentUser={currentUser} />
+            <div className="side-container">
+              <div className="portfolio-watchlist-container">
+                <div className="portfolio">
+                  <h4>Stocks</h4>
+                  <StockIndex currentUser={currentUser} />
+                </div>
+                <div className="watchlist">
+                  <h4>Watchlist</h4>
+                  <WatchlistIndex currentUser={currentUser} />
+                </div>
               </div>
             </div>
-          </aside>
+            <NewsIndexContainer />
+          </div>
         </div>
       ) : (
         <div className="stock-loading">
