@@ -14,6 +14,7 @@
 
 .main-nav {
   display: flex;
+  flex-basis: 10%;
 }
 
 .svg-text {
@@ -96,19 +97,21 @@
 .site-nav {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
-  margin-left: 70px;
+  flex-basis: 90%;
   .nav-links {
     display: flex;
     a {
       margin: auto;
     }
   }
-
+  .stock-search {
+    width: 50%;
+    max-width: 400px;
+  }
   input {
     border: 0.1px solid lightgrey;
     height: 32px;
-    width: 400px;
+    width: 90%;
     padding: 2px 20px 0 20px;
     transition: box-shadow 0.3s ease-in-out;
   }

@@ -94,7 +94,7 @@ class HomePage extends React.Component {
     // removed 'currentUser.portfolioData &&' from line 86 to save some api messages use
     const display = currentUser ? (
       currentUser.intradayData ? (
-        <div className="show-page">
+        <div className="show-page col-1">
           <div className="dashboard">
             <PortfolioChart
               currentUser={currentUser}

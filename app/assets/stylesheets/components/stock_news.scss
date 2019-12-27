@@ -2,7 +2,7 @@
   // padding-top: 30px;
   margin-top: 30px;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .news > h2 {
@@ -10,39 +10,44 @@
   padding-bottom: 10px;
 }
 
+.stock-news-item-container {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
 .stock-news-item {
   display: flex;
   justify-content: space-between;
-
-  padding: 30px 30px;
-  margin: 0 -30px;
   img {
-    width: 198px;
-    height: 136px;
+    width: 35%;
     border-radius: 4px;
   }
   main {
-    width: 450px;
-    // height: 100px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    section {
+      margin-bottom: 10px;
+    }
   }
   h3 {
     margin: 0;
     color: black;
-    font-size: 30px;
+    // font-size: 30px;
     font-weight: 700;
-    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family: DIN Pro, -apple-system, BlinkMacSystemFont, sans-serif;
   }
   h4 {
     margin-bottom: 5px;
     color: black;
     font-size: 12px;
     font-weight: 600;
-    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family: DIN Pro, -apple-system, BlinkMacSystemFont, sans-serif;
   }
   p {
     margin: 0;
     color: black;
-    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family: DIN Pro, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 14px;
   }
 }

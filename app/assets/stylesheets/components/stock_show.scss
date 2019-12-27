@@ -6,12 +6,15 @@
 .dashboard {
   display: flex;
   margin-top: 75px;
-  margin-left: 0;
+  // margin-left: 0;
   // padding-top: 100px;
   // padding-left: 13.5%;
   flex-direction: column;
-  width: 60%;
+  width: 100%;
 }
+// body {
+//   overflow: hidden;
+// }
 
 .side-container {
   position: fixed;
@@ -46,4 +49,31 @@
 // }
 
 @media only screen and (min-width: 1025px) {
+  .show-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard {
+    display: flex;
+    margin-top: 75px;
+    margin-left: 0;
+    // padding-top: 100px;
+    // padding-left: 13.5%;
+    flex-direction: column;
+    width: 60%;
+  }
+  body {
+    overflow: hidden;
+  }
+
+  .side-container {
+    position: fixed;
+    top: 75px;
+    right: 4%;
+    width: 24%;
+    max-height: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }

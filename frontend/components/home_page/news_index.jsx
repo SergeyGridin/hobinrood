@@ -1,8 +1,7 @@
-import React from 'react';
-import StockNewsItem from '../stocks/stock_news_item';
+import React from "react";
+import StockNewsItem from "../stocks/stock_news_item";
 // import { FadeLoader } from 'react-spinners';
 // import { css } from 'react-emotion';
-
 
 class NewsIndex extends React.Component {
   constructor(props) {
@@ -11,24 +10,26 @@ class NewsIndex extends React.Component {
 
   componentDidMount() {
     // if (this.props.news.length === 0) {
-      this.props.fetchNews();
-      // .then(this.props.handleLoad);
+    this.props.fetchNews();
+    // .then(this.props.handleLoad);
     // } else {
-      // this.props.handleLoad();
+    // this.props.handleLoad();
     // }
   }
   render() {
     const { news } = this.props;
     return (
-      <div className='news'>
+      <div className="news">
         <h2>Recent News</h2>
         {
           // news.hasOwnProperty('0') ? (
-            <ul>
-              {
-                news.filter(el => el.urlToImage).map((newsItem, idx) => <StockNewsItem newsItem={newsItem} key={idx} />)
-              }
-            </ul>
+          <ul className="row">
+            {news
+              .filter(el => el.urlToImage)
+              .map((newsItem, idx) => (
+                <StockNewsItem newsItem={newsItem} key={idx} />
+              ))}
+          </ul>
           // ) : (
           //   <div className='news-loading'>
           //     {/* <FadeLoader

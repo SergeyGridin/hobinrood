@@ -10,8 +10,9 @@
 }
 
 div.splash {
+  width: 92%;
   height: calc(100vh - 250px);
-  margin: auto 0;
+  margin: auto auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

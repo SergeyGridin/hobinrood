@@ -35,10 +35,11 @@ li {
 
 body {
   font-family: "DIN Pro", "DIN Web", sans-serif;
+  overflow-y: auto;
 }
 
 .wrapper {
-  width: 92%;
+  /* width: 92%; */
   height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
