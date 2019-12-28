@@ -1,7 +1,6 @@
 .stock-transaction {
-  width: 300px;
-  border: 1px solid #eee;
-  box-shadow: 3px 0px 2px #fafafa, -3px 0px 2px #fafafa, 0px 3px 2px #fafafa, 0px -3px 2px #fafafa;
+  width: 100%;
+  margin-top: 30px;
   height: 400px;
   h3 {
     width: 280px;
@@ -34,11 +33,12 @@
       height: 12px;
       padding: 10px;
       text-align: right;
-      background: #fafafa;;
-      border: 1px solid #fafafa;;
+      background: #fafafa;
+      border: 1px solid #fafafa;
       outline: none;
     }
-    input:hover, input:focus {
+    input:hover,
+    input:focus {
       border: 1px solid grey;
       background: white;
       outline: none;
@@ -46,9 +46,8 @@
     }
   }
 
-
-
-  .transaction-price, .transaction-cost {
+  .transaction-price,
+  .transaction-cost {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,7 +68,7 @@
   .transaction-errors {
     display: flex;
     font-size: 13px;
-    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family: DIN Pro, -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 500;
     height: 20px;
     width: 100%;
@@ -93,7 +92,7 @@
     justify-content: center;
     margin-top: 40px;
     input {
-      font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+      font-family: DIN Pro, -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 500;
       border-radius: 4px;
       background: #21ce99;
@@ -126,14 +125,14 @@
   box-sizing: border-box;
   font-family: "DIN Pro", "DIN Web", sans-serif;
   background: none;
-  border: none; 
+  border: none;
   font: inherit;
   cursor: pointer;
   padding-top: 30px;
 }
 
 .watch-button:hover {
-  color:#21ce99;
+  color: #21ce99;
 }
 
 .watch-button:focus {
@@ -147,3 +146,10 @@
   justify-content: center;
 }
 
+@media only screen and (min-width: 1025px) {
+  .stock-transaction {
+    border: 1px solid #eee;
+    box-shadow: 3px 0px 2px #fafafa, -3px 0px 2px #fafafa, 0px 3px 2px #fafafa,
+      0px -3px 2px #fafafa;
+  }
+}

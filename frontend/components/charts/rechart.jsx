@@ -1,14 +1,20 @@
-import React from 'react';
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
-import CustomTooltip from './custom_tooltip';
-
+import React from "react";
+import {
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+  Tooltip
+} from "recharts";
+import CustomTooltip from "./custom_tooltip";
 
 const RANGES = {
-  '1W': { length: 5, increment: 1 },
-  '1M': { length: 23, increment: 1 },
-  '3M': { length: 66, increment: 1 },
-  '1Y': { length: 250, increment: 1 },
-  '5Y': { length: 1258, increment: 5 },
+  "1W": { length: 5, increment: 1 },
+  "1M": { length: 23, increment: 1 },
+  "3M": { length: 66, increment: 1 },
+  "1Y": { length: 250, increment: 1 },
+  "5Y": { length: 1258, increment: 5 }
 };
 
 const MONTHS = {
@@ -33,7 +39,7 @@ class StockRechart extends React.Component {
       currData: this.props,
       initialData: this.props,
       dailyData: this.props.dailyData,
-      active: '1D'
+      active: "1D"
     };
     this.render1DChart = this.render1DChart.bind(this);
   }
@@ -52,9 +58,15 @@ class StockRechart extends React.Component {
     const min = Math.min(...prices);
     const currPrice = this.state.initialData.currPrice;
     const openPrice = dailyData[startIdx].close;
-    const priceDiff = Math.round((parseFloat(currPrice) - parseFloat(openPrice)) * 100) / 100;
-    const priceDiffPercentage = Math.round(((parseFloat(currPrice) - parseFloat(openPrice)) / parseFloat(openPrice)) * 10000) / 100;
-    if (priceDiff < 0)  neg = "-" ;
+    const priceDiff =
+      Math.round((parseFloat(currPrice) - parseFloat(openPrice)) * 100) / 100;
+    const priceDiffPercentage =
+      Math.round(
+        ((parseFloat(currPrice) - parseFloat(openPrice)) /
+          parseFloat(openPrice)) *
+          10000
+      ) / 100;
+    if (priceDiff < 0) neg = "-";
 
     return {
       max,
@@ -68,11 +80,10 @@ class StockRechart extends React.Component {
   }
 
   render1DChart() {
-    this.setState({ currData: this.state.initialData, active: '1D' });
+    this.setState({ currData: this.state.initialData, active: "1D" });
   }
 
   formatDate(date) {
-
     let [year, month, day] = date.split("-");
 
     return `${MONTHS[parseInt(month)]} ${day}, ${year}`;
@@ -84,17 +95,27 @@ class StockRechart extends React.Component {
     let startIdx = RANGES[range].length;
     if (startIdx > dailyData.length) startIdx = dailyData.length;
 
-
-    for (let i = dailyData.length - startIdx; i < dailyData.length; i += RANGES[range].increment) {
+    for (
+      let i = dailyData.length - startIdx;
+      i < dailyData.length;
+      i += RANGES[range].increment
+    ) {
       let time = this.formatDate(dailyData[i].date);
       data.push({
         time,
         price: Math.round(dailyData[i].close * 100) / 100
       });
-
     }
 
-    let { max, min, neg, currPrice, openPrice, priceDiff, priceDiffPercentage } = this.calculateDailyPriceData(data, dailyData.length - startIdx - 1);
+    let {
+      max,
+      min,
+      neg,
+      currPrice,
+      openPrice,
+      priceDiff,
+      priceDiffPercentage
+    } = this.calculateDailyPriceData(data, dailyData.length - startIdx - 1);
     this.setState({
       currData: {
         data,
@@ -105,20 +126,29 @@ class StockRechart extends React.Component {
         min,
         max,
         neg,
-        dailyData,
+        dailyData
       },
       active: range
     });
   }
 
   render() {
-    let { currPrice, openPrice, priceDiff, priceDiffPercentage, data, min, max, neg } = this.state.currData;
-    neg = priceDiffPercentage >= 0 ? '+' : '-';
-    let color = (neg === '+') ? "#82ca9d" : "#f45531";
-    if (neg === '-') {
-      document.getElementsByTagName('body')[0].className = 'negative';
+    let {
+      currPrice,
+      openPrice,
+      priceDiff,
+      priceDiffPercentage,
+      data,
+      min,
+      max,
+      neg
+    } = this.state.currData;
+    neg = priceDiffPercentage >= 0 ? "+" : "-";
+    let color = neg === "+" ? "#82ca9d" : "#f45531";
+    if (neg === "-") {
+      document.getElementsByTagName("body")[0].className = "negative";
     } else {
-      document.getElementsByTagName('body')[0].className = '';
+      document.getElementsByTagName("body")[0].className = "";
     }
     currPrice = parseFloat(currPrice);
     priceDiff = Math.abs(parseFloat(priceDiff));
@@ -128,29 +158,106 @@ class StockRechart extends React.Component {
       <div className="chart">
         <h1>{this.props.stock.name}</h1>
         <h2 id="stock-price">${currPrice}</h2>
-        <h3 id="stock-price-diff">{neg}${priceDiff} ({priceDiffPercentage}%)</h3>
+        <h3 id="stock-price-diff">
+          {neg}${priceDiff} ({priceDiffPercentage}%)
+        </h3>
         <div className="stock-chart">
-          <LineChart width={650} height={195} data={data}
-            margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-            <YAxis
-              hide={true}
-              domain={[min, max]}
-            />
-            <Tooltip
-              content={<CustomTooltip />}
-              offset={-40}
-              position={{ y: -20 }}
-              isAnimationActive={true}
-            />
-            <Line type="linear" dataKey="price" stroke={color} dot={false} strokeWidth={2} />
-          </LineChart>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart
+              width={650}
+              height={195}
+              data={data}
+              margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
+            >
+              <YAxis hide={true} domain={[min, max]} />
+              <Tooltip
+                content={<CustomTooltip />}
+                offset={-40}
+                position={{ y: -20 }}
+                isAnimationActive={true}
+              />
+              <Line
+                type="linear"
+                dataKey="price"
+                stroke={color}
+                dot={false}
+                strokeWidth={2}
+              />
+            </LineChart>
+          </ResponsiveContainer>
           <ul className="chart-range stock">
-            <li><a className={this.state.active === '1D' ? 'chart-choice active' : 'chart-choice'} onClick={this.render1DChart}>1D</a></li>
-            <li><a className={this.state.active === '1W' ? 'chart-choice active' : 'chart-choice'} onClick={() => this.renderChart('1W')}>1W</a></li>
-            <li><a className={this.state.active === '1M' ? 'chart-choice active' : 'chart-choice'} onClick={() => this.renderChart('1M')}>1M</a></li>
-            <li><a className={this.state.active === '3M' ? 'chart-choice active' : 'chart-choice'} onClick={() => this.renderChart('3M')}>3M</a></li>
-            <li><a className={this.state.active === '1Y' ? 'chart-choice active' : 'chart-choice'} onClick={() => this.renderChart('1Y')}>1Y</a></li>
-            <li><a className={this.state.active === '5Y' ? 'chart-choice active' : 'chart-choice'} onClick={() => this.renderChart('5Y')}>5Y</a></li>
+            <li>
+              <a
+                className={
+                  this.state.active === "1D"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={this.render1DChart}
+              >
+                1D
+              </a>
+            </li>
+            <li>
+              <a
+                className={
+                  this.state.active === "1W"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={() => this.renderChart("1W")}
+              >
+                1W
+              </a>
+            </li>
+            <li>
+              <a
+                className={
+                  this.state.active === "1M"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={() => this.renderChart("1M")}
+              >
+                1M
+              </a>
+            </li>
+            <li>
+              <a
+                className={
+                  this.state.active === "3M"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={() => this.renderChart("3M")}
+              >
+                3M
+              </a>
+            </li>
+            <li>
+              <a
+                className={
+                  this.state.active === "1Y"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={() => this.renderChart("1Y")}
+              >
+                1Y
+              </a>
+            </li>
+            <li>
+              <a
+                className={
+                  this.state.active === "5Y"
+                    ? "chart-choice active"
+                    : "chart-choice"
+                }
+                onClick={() => this.renderChart("5Y")}
+              >
+                5Y
+              </a>
+            </li>
           </ul>
         </div>
       </div>
