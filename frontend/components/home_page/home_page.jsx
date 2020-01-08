@@ -46,7 +46,7 @@ class HomePage extends React.Component {
   render() {
     const { currentUser, logout } = this.props;
     let balance,
-      dailyData,
+      portfolioData,
       intradayData,
       openBalance,
       balances,
@@ -55,11 +55,10 @@ class HomePage extends React.Component {
       balanceChange,
       balanceChangePercentage;
     let neg = "+";
-    if (currentUser && currentUser.intradayData) {
+    if (currentUser && currentUser.intradayData && currentUser.portfolioData) {
       intradayData = currentUser.intradayData;
 
       for (let i = intradayData.length - 1; i < intradayData.length; i--) {
-        // debugger
         const element = intradayData[i];
         if (i < 0) break; // QUICK FIX
         if (element.balance !== null) {
@@ -68,7 +67,7 @@ class HomePage extends React.Component {
         }
       }
       // balance = intradayData[intradayData.length - 1].balance;
-      // dailyData = currentUser.dailyData;
+      portfolioData = currentUser.portfolioData;
       if (intradayData.length === 0) {
         openBalance = balance;
         balanceChange = "0.00";
@@ -93,14 +92,14 @@ class HomePage extends React.Component {
     }
     // removed 'currentUser.portfolioData &&' from line 86 to save some api messages use
     const display = currentUser ? (
-      currentUser.intradayData ? (
+      currentUser.portfolioData && currentUser.intradayData ? (
         <div className="show-page col-1">
           <div className="dashboard">
             <PortfolioChart
               currentUser={currentUser}
               balance={balance}
               openBalance={openBalance}
-              // dailyData={dailyData}
+              portfolioData={portfolioData}
               intradayData={intradayData}
               data={intradayData}
               max={max}
